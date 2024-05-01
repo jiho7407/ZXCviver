@@ -1,6 +1,6 @@
 extends Node2D
 
-var spawn_margin = 800
+var spawn_margin = 1200
 var EnemyPresetScene = preload("res://enemy_preset.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
