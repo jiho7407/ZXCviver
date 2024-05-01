@@ -7,7 +7,7 @@
 size = Vector2(120, 120)
 
 [node name="EnemyPreset" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_nx40n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

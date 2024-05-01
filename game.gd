@@ -4,12 +4,13 @@ var spawn_margin = 1200
 var EnemyPresetScene = preload("res://enemy_preset.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$EnemySpawnTimer.wait_time = 0.5
+	$EnemySpawnTimer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	spawn_enemy() # 여기에 있는 이 함수 때문에 지금은 매 프레임마다 enemy 스폰 됨. 나중에 당연히 수정 필요.
+	pass
 
 func spawn_enemy():
 
@@ -40,3 +41,8 @@ func spawn_enemy():
 	new_enemy.position = spawn_position
 	
 	self.add_child(new_enemy)
+
+
+func _on_enemy_spawn_timer_timeout():
+	spawn_enemy()
+	$EnemySpawnTimer.start()

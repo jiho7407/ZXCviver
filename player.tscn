@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://pnn5600gi84x" path="res://gun_preset.tscn" id="2_ikwyo"]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
