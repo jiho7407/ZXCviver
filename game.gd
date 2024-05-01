@@ -4,12 +4,12 @@ var spawn_margin = 1200
 var EnemyPresetScene = preload("res://enemy_preset.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_enemy()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	spawn_enemy() # 여기에 있는 이 함수 때문에 지금은 매 프레임마다 enemy 스폰 됨. 나중에 당연히 수정 필요.
 
 func spawn_enemy():
 
