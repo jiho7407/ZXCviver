@@ -17,5 +17,5 @@ func shoot():
 	var bullet = Bullet.instantiate()
 	bullet.position = Vector2(0,0)
 	bullet.direction = (get_global_mouse_position() - position).normalized()
-	add_child(bullet)
+	self.add_child(bullet)
 	

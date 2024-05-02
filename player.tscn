@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cleupvw2u4rcu"]
+[gd_scene load_steps=2 format=3 uid="uid://cleupvw2u4rcu"]
 
 [ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="1_eyjpe"]
-[ext_resource type="PackedScene" uid="uid://pnn5600gi84x" path="res://gun_preset.tscn" id="2_ikwyo"]
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -10,5 +9,3 @@ scale = Vector2(0.5, 0.5)
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_eyjpe")
-
-[node name="GunPreset" parent="." instance=ExtResource("2_ikwyo")]
