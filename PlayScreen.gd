@@ -70,3 +70,7 @@ func _on_exit_pressed():
 func _on_resume_pressed():
 	$PauseMenu/CanvasLayer.hide()
 	get_tree().paused = false
+
+
+func _on_options_pressed():
+	$PauseMenu/OptionsPopup.show()
