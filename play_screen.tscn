@@ -45,7 +45,6 @@ layer_0/tile_data = PackedInt32Array(-1441832, 196608, 1, -1441831, 196608, 1, -
 [node name="Player" parent="." instance=ExtResource("2_m2o5b")]
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3

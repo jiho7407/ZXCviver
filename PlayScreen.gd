@@ -7,6 +7,7 @@ var mouse_position: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$EnemySpawnTimer.wait_time = 0.7
 	$EnemySpawnTimer.start()
 	var GunPreset = GunPresetScene.instantiate()
 	$Weapons.add_child(GunPreset)
