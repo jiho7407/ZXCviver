@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var mouse_position : Vector2
+var hp = 100
 
 func _ready():
 	pass
@@ -10,3 +11,5 @@ func _process(delta):
 
 func _physics_process(delta):
 	pass
+
+

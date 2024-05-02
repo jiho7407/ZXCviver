@@ -13,7 +13,7 @@ script = ExtResource("1_nx40n")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8xf56")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_yapbi")

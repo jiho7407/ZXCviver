@@ -16,7 +16,7 @@ script = ExtResource("1_yvlop")
 rotation = 1.57079
 texture = ExtResource("1_poi66")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["PlayerHitbox"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-2, 0)
