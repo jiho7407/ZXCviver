@@ -13,11 +13,12 @@ config_version=5
 config/name="ZXCV"
 run/main_scene="res://main_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Interface/Chicken.png"
 
 [autoload]
 
 Player="*res://player.tscn"
+Game="*res://game.tscn"
 
 [display]
 

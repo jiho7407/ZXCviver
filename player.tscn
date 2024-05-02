@@ -1,11 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cleupvw2u4rcu"]
+[gd_scene load_steps=4 format=3 uid="uid://cleupvw2u4rcu"]
 
-[ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="1_eyjpe"]
+[ext_resource type="Texture2D" uid="uid://csb0ved1py8cr" path="res://Interface/Chicken.png" id="1_poi66"]
+[ext_resource type="Script" path="res://player.gd" id="1_yvlop"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_imkgx"]
+radius = 18.0
+height = 46.0
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+script = ExtResource("1_yvlop")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_eyjpe")
+rotation = 1.57079
+texture = ExtResource("1_poi66")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-2, 0)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_imkgx")
