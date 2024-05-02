@@ -2,6 +2,7 @@ extends Node2D
 
 var spawn_margin = 1200
 var EnemyPresetScene = preload("res://enemy_preset.tscn")
+var paused:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$EnemySpawnTimer.wait_time = 0.5
@@ -10,7 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_pressed("ui_cancel") and paused == false:
+		$CanvasLayer.show()
+		get_tree().paused = true
 
 func spawn_enemy():
 
@@ -46,3 +49,7 @@ func spawn_enemy():
 func _on_enemy_spawn_timer_timeout():
 	spawn_enemy()
 	$EnemySpawnTimer.start()
+
+
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://main_screen.tscn")
