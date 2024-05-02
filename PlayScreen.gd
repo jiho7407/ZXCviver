@@ -1,16 +1,30 @@
 extends Node2D
 
-var spawn_margin = 1200
+var spawn_margin = 700
 var EnemyPresetScene = preload("res://enemy_preset.tscn")
+var GunPresetScene = preload("gun_preset.tscn")
+var mouse_position: Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$EnemySpawnTimer.wait_time = 0.5
 	$EnemySpawnTimer.start()
+	var GunPreset = GunPresetScene.instantiate()
+	$Weapons.add_child(GunPreset)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("ui_cancel"):
+			if get_tree().paused == false:
+				$PauseMenu/CanvasLayer.show()
+			else:
+				$PauseMenu/CanvasLayer.hide()
+			get_tree().paused = !get_tree().paused
+			get_viewport().set_input_as_handled()
 
 func spawn_enemy():
 
@@ -40,9 +54,19 @@ func spawn_enemy():
 	var new_enemy = enemy[0]
 	new_enemy.position = spawn_position
 	
-	self.add_child(new_enemy)
+	$Enemies.add_child(new_enemy)
 
 
 func _on_enemy_spawn_timer_timeout():
 	spawn_enemy()
 	$EnemySpawnTimer.start()
+
+
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://title_screen.tscn")
+	
+
+
+func _on_resume_pressed():
+	$PauseMenu/CanvasLayer.hide()
+	get_tree().paused = false
