@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://bypmw4h4qk31o"]
+
+[ext_resource type="Script" path="res://PlayScreen.gd" id="1_0lqdw"]
+[ext_resource type="PackedScene" uid="uid://cleupvw2u4rcu" path="res://player.tscn" id="2_m2o5b"]
+
+[node name="PlayScreen" type="Node2D"]
+script = ExtResource("1_0lqdw")
+
+[node name="BackGroundSprite" type="Sprite2D" parent="."]
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_m2o5b")]
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PauseMenu"]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/CanvasLayer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 370)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "RESUME"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Languages" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "🌐"
+
+[node name="Options" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Credits" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Credits"
+
+[node name="Exit" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "EXIT"
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

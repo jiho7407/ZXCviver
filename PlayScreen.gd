@@ -20,9 +20,9 @@ func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("ui_cancel"):
 			if get_tree().paused == false:
-				$PauseMenu.show()
+				$PauseMenu/CanvasLayer.show()
 			else:
-				$PauseMenu.hide()
+				$PauseMenu/CanvasLayer.hide()
 			get_tree().paused = !get_tree().paused
 			get_viewport().set_input_as_handled()
 
@@ -63,10 +63,10 @@ func _on_enemy_spawn_timer_timeout():
 
 
 func _on_exit_pressed():
-	get_tree().change_scene_to_file("res://main_screen.tscn")
+	get_tree().change_scene_to_file("res://title_screen.tscn")
 	
 
 
 func _on_resume_pressed():
-	$PauseMenu.hide()
+	$PauseMenu/CanvasLayer.hide()
 	get_tree().paused = false
