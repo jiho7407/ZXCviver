@@ -24,8 +24,7 @@ func _input(event):
 				$PauseMenu/CanvasLayer.show()
 			else:
 				$PauseMenu/CanvasLayer.hide()
-			get_tree().paused = !get_tree().paused
-			get_viewport().set_input_as_handled()
+			pause_screen()
 
 func spawn_enemy():
 
@@ -56,6 +55,10 @@ func spawn_enemy():
 	new_enemy.position = spawn_position
 	
 	$Enemies.add_child(new_enemy)
+
+func pause_screen():
+	get_tree().paused = !get_tree().paused
+	get_viewport().set_input_as_handled()
 
 
 func _on_enemy_spawn_timer_timeout():
