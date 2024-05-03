@@ -101,7 +101,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "EXIT"
 
-[node name="logo" type="Sprite2D" parent="CanvasLayer"]
+[node name="LogoSprite" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(640, 200)
 scale = Vector2(6.82422, 1.50586)
 texture = ExtResource("3_yivo0")
