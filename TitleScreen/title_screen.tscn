@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxxunqhq6o0fr"]
+[gd_scene load_steps=7 format=3 uid="uid://cxxunqhq6o0fr"]
 
 [ext_resource type="Script" path="res://TitleScreen/TitleScreen.gd" id="1_s8yki"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_53sg2"]
 [ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="3_yivo0"]
+[ext_resource type="Texture2D" uid="uid://d0cbuf5gar4o" path="res://Interface/darkcoloredwall.png" id="4_wa65r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1b0wt"]
 texture = ExtResource("2_53sg2")
@@ -101,10 +102,76 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "EXIT"
 
+[node name="OptionsWindow" type="Window" parent="CanvasLayer"]
+initial_position = 2
+size = Vector2i(400, 500)
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/OptionsWindow"]
+position = Vector2(60, 180)
+texture = ExtResource("4_wa65r")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OptionsWindow"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OptionsWindow/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sounds" type="Label" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Sounds"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_direction = 2
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="Label" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Full Screen"
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
 [node name="LogoSprite" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(640, 200)
 scale = Vector2(6.82422, 1.50586)
 texture = ExtResource("3_yivo0")
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="close_requested" from="CanvasLayer/OptionsWindow" to="." method="_on_options_window_close_requested"]
+[connection signal="toggled" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3/CheckButton" to="." method="_on_check_button_toggled"]
