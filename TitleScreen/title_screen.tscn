@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxxunqhq6o0fr"]
 
-[ext_resource type="Script" path="res://TitleScreen.gd" id="1_s8yki"]
+[ext_resource type="Script" path="res://TitleScreen/TitleScreen.gd" id="1_s8yki"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_53sg2"]
 [ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="3_yivo0"]
 
