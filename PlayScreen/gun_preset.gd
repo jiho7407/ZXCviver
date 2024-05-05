@@ -1,7 +1,7 @@
 extends Node2D
 
 var direction = Vector2()
-var Bullet = preload("res://bullet.tscn")
+var Bullet = preload("res://PlayScreen/bullet.tscn")
 var shoot_z = 0
 var shoot_x = 0
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 var spawn_margin = 700
-var EnemyPresetScene = preload("res://enemy_preset.tscn")
+var EnemyPresetScene = preload("res://PlayScreen/enemy_preset.tscn")
 var GunPresetScene = preload("gun_preset.tscn")
 var mouse_position: Vector2
 
@@ -67,7 +67,7 @@ func _on_enemy_spawn_timer_timeout():
 
 
 func _on_exit_pressed():
-	get_tree().change_scene_to_file("res://title_screen.tscn")
+	get_tree().change_scene_to_file("res://TitleScreen/title_screen.tscn")
 	
 
 

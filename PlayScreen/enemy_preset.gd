@@ -15,10 +15,3 @@ func _physics_process(delta):
 	if hp <= 0:
 		queue_free()
 
-
-func _on_area_2d_area_entered(area):
-	if area.is_in_group("bullet"):
-		hp -= 50
-	if area.is_in_group("PlayerHitbox"):
-		Player.hp -= damage
-		queue_free()
