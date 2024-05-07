@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxxunqhq6o0fr"]
+[gd_scene load_steps=8 format=3 uid="uid://cxxunqhq6o0fr"]
 
 [ext_resource type="Script" path="res://TitleScreen/TitleScreen.gd" id="1_s8yki"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_53sg2"]
+[ext_resource type="Script" path="res://TitleScreen/OptionsWindow.gd" id="3_hnmlh"]
 [ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="3_yivo0"]
 [ext_resource type="Texture2D" uid="uid://d0cbuf5gar4o" path="res://Interface/darkcoloredwall.png" id="4_wa65r"]
 
@@ -106,6 +107,7 @@ text = "EXIT"
 initial_position = 2
 size = Vector2i(400, 500)
 visible = false
+script = ExtResource("3_hnmlh")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/OptionsWindow"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -173,7 +175,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Full Screen"
 
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="FullScreenCheck" type="CheckButton" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -183,6 +185,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
+text = "Another"
 
 [node name="LogoSprite" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(640, 200)
@@ -193,6 +196,6 @@ texture = ExtResource("3_yivo0")
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="close_requested" from="CanvasLayer/OptionsWindow" to="." method="_on_options_window_close_requested"]
-[connection signal="value_changed" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer/SoundsSlider" to="." method="_on_sounds_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="toggled" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer/SoundsSlider" to="CanvasLayer/OptionsWindow" method="_on_sounds_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="CanvasLayer/OptionsWindow" method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3/FullScreenCheck" to="CanvasLayer/OptionsWindow" method="_on_full_screen_check_toggled"]
