@@ -2,12 +2,14 @@ extends Node2D
 
 
 var EnemyPresetScene = preload("res://PlayScreen/EnemyPreset.tscn")
-var GunPresetScene = preload("GunPreset.tscn")
+var GunPresetScene = preload("res://PlayScreen/GunPreset.tscn")
 var mouse_position: Vector2
+
+var EnemySpawnTimerWaitTime = 0.7
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$EnemySpawnTimer.wait_time = 0.7
+	$EnemySpawnTimer.wait_time = EnemySpawnTimerWaitTime
 	$EnemySpawnTimer.start()
 	var GunPreset = GunPresetScene.instantiate()
 	$Weapons.add_child(GunPreset)
