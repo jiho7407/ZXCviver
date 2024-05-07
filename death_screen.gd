@@ -11,14 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_start_pressed():
-	get_tree().change_scene_to_file("res://game.tscn")
-
-
 func _on_exit_pressed():
-	await get_tree().create_timer(0.05).timeout
-	get_tree().quit()
-
-
-
-
+	get_tree().change_scene_to_file("res://TitleScreen/title_screen.tscn")
