@@ -135,7 +135,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Sounds"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="SoundsSlider" type="HSlider" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_direction = 3
 layout_mode = 2
@@ -154,7 +154,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Music"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 0)
 layout_direction = 2
 layout_mode = 2
@@ -193,4 +193,6 @@ texture = ExtResource("3_yivo0")
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="close_requested" from="CanvasLayer/OptionsWindow" to="." method="_on_options_window_close_requested"]
+[connection signal="value_changed" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer/SoundsSlider" to="." method="_on_sounds_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="CanvasLayer/OptionsWindow/MarginContainer/VBoxContainer/HBoxContainer3/CheckButton" to="." method="_on_check_button_toggled"]
