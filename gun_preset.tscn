@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ycgndeaoc0nh"]
+
+[ext_resource type="Script" path="res://gun_preset.gd" id="1_pky1i"]
+
+[node name="GunPreset" type="Node2D"]
+script = ExtResource("1_pky1i")
