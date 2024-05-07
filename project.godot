@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="ZXCV"
-run/main_scene="res://TitleScreen/title_screen.tscn"
+run/main_scene="res://TitleScreen/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Interface/eggicon.png"
 
 [autoload]
 
-Player="*res://PlayScreen/player.tscn"
+Player="*res://PlayScreen/Player.tscn"
 Game="*res://game.tscn"
 
 [display]

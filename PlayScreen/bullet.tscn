@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://boluv6rcel57f"]
 
-[ext_resource type="Script" path="res://PlayScreen/bullet.gd" id="1_gewtf"]
+[ext_resource type="Script" path="res://PlayScreen/Bullet.gd" id="1_gewtf"]
 [ext_resource type="Texture2D" uid="uid://b81xd1i6fnsma" path="res://Interface/egg.png" id="2_jb0q4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_06m1s"]

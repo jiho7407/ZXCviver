@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfmrgcgv7xljb"]
 
-[ext_resource type="Script" path="res://PlayScreen/enemy_preset.gd" id="1_ihsac"]
-[ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="2_eysw2"]
+[ext_resource type="Script" path="res://PlayScreen/EnemyPreset.gd" id="1_oa7lq"]
+[ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="2_jjbm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yapbi"]
 size = Vector2(120, 120)
 
 [node name="EnemyPreset" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_ihsac")
+script = ExtResource("1_oa7lq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_eysw2")
+texture = ExtResource("2_jjbm4")
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
 
