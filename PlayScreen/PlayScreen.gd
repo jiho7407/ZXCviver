@@ -51,9 +51,9 @@ func spawnEnemy():
 				SpawnPosition.y = PlayerPosition.y + SpawnMargin
 	
 	
-	var new_enemy = enemy[0]
-	new_enemy.position = SpawnPosition
-	$Enemies.add_child(new_enemy)
+	var NewEnemy = enemy[0]
+	NewEnemy.position = SpawnPosition
+	$Enemies.add_child(NewEnemy)
 
 func pause_screen():
 	get_tree().paused = !get_tree().paused
