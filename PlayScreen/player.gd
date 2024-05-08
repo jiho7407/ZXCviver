@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var mouse_position : Vector2
+var Exp = 0
 
 func _ready():
 	pass

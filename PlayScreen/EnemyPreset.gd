@@ -10,7 +10,6 @@ func ready():
 
 func _physics_process(delta):
 	velocity = (Player.position - position).normalized() * SPEED
-	look_at(Player.position)
 	move_and_slide()
 	if hp <= 0:
 		queue_free()

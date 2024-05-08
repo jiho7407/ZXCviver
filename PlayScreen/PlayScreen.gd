@@ -2,6 +2,7 @@ extends Node2D
 
 
 var EnemyPresetScene = preload("res://PlayScreen/EnemyPreset.tscn")
+var Enemy1Scene = preload("res://PlayScreen/Enemy1.tscn")
 var GunPresetScene = preload("res://PlayScreen/GunPreset.tscn")
 var mouse_position: Vector2
 
@@ -29,13 +30,13 @@ func _input(event):
 			pause_screen()
 
 func spawnEnemy():
-	
 	var SpawnMargin = 700
 	var PlayerPosition = $Player.position
 	var SpawnPosition = Vector2()
 	var EnemyPreset = EnemyPresetScene.instantiate()
+	var Enemy1 = Enemy1Scene.instantiate()
 	
-	var enemy = [EnemyPreset]
+	var enemy = [Enemy1]
 	
 	if randf() < 0.25:  # Spawn either to the left or right
 		SpawnPosition.x = PlayerPosition.x - SpawnMargin
