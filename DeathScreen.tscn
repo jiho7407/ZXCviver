@@ -41,36 +41,8 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="CenterContainer" type="CenterContainer" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 370)
+custom_minimum_size = Vector2(0, 570)
 layout_mode = 2
-
-[node name="Resume" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "RESUME"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 15
-
-[node name="Languages" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "🌐"
-
-[node name="Options" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Options"
-
-[node name="Credits" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Credits"
 
 [node name="Exit" type="Button" parent="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
