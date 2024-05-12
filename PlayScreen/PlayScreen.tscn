@@ -113,15 +113,17 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "EXIT"
 
-[node name="OptionsPopup" type="PopupPanel" parent="PauseMenu"]
+[node name="OptionsWindow" type="Window" parent="."]
 initial_position = 2
 size = Vector2i(400, 600)
+visible = false
 
-[node name="ShopPopup" type="Window" parent="."]
+[node name="ShopWindow" type="Window" parent="."]
 initial_position = 1
 size = Vector2i(1100, 600)
+visible = false
 
-[node name="MarginContainer" type="MarginContainer" parent="ShopPopup"]
+[node name="MarginContainer" type="MarginContainer" parent="ShopWindow"]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
@@ -131,16 +133,18 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShopPopup/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopWindow/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ShopPopup/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ShopWindow/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ShopPopup/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShopWindow/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="close_requested" from="OptionsWindow" to="." method="_on_options_popup_close_requested"]
+[connection signal="close_requested" from="ShopWindow" to="." method="_on_shop_popup_close_requested"]
