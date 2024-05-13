@@ -142,6 +142,14 @@ layout_mode = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="ShopWindow/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 20.0
+
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
