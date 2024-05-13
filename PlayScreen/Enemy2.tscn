@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcimcin7bjew4"]
+
+[ext_resource type="Script" path="res://PlayScreen/Enemy2.gd" id="1_vyaww"]
+[ext_resource type="Texture2D" uid="uid://l5k6sd7n5fcc" path="res://Interface/Animations/Enemies/adept necromancer/AdeptNecromancer.png" id="2_jkva4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yapbi"]
+size = Vector2(120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plhtw"]
+atlas = ExtResource("2_jkva4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4872"]
+atlas = ExtResource("2_jkva4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ee0"]
+atlas = ExtResource("2_jkva4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m45q"]
+atlas = ExtResource("2_jkva4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2het"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plhtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4872")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ee0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m45q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy2" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_vyaww")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yapbi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -8)
+scale = Vector2(8.5, 8.5)
+sprite_frames = SubResource("SpriteFrames_w2het")
+autoplay = "default"
+frame_progress = 0.776091
+speed_scale = 0.5
