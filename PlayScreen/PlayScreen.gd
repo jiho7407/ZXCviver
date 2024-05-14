@@ -50,8 +50,11 @@ func spawnEnemy():
 				SpawnPosition.x = randf_range(-SpawnMargin, SpawnMargin)
 				SpawnPosition.y = PlayerPosition.y + SpawnMargin
 	
-	EnemyPreset.initialize("Acid Ooze")
+	var EnemyNamesArray = EnemyDatabase.getAllEnemyNames()
+	var i = randi_range(0,4)
+	var EnemyName = EnemyNamesArray[i]
 	
+	EnemyPreset.initialize(EnemyName)
 	EnemyPreset.position = SpawnPosition
 	$Enemies.add_child(EnemyPreset)
 
