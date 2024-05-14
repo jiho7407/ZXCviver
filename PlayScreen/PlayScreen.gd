@@ -57,6 +57,10 @@ func spawnEnemy():
 	EnemyPreset.initialize(EnemyName)
 	EnemyPreset.position = SpawnPosition
 	$Enemies.add_child(EnemyPreset)
+	if (Player.position-EnemyPreset.position).x > 0:
+		EnemyPreset.get_child(1).flip_h = false
+	else:
+		EnemyPreset.get_child(1).flip_h = true
 
 func pause_screen():
 	get_tree().paused = !get_tree().paused

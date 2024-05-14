@@ -36,7 +36,35 @@ var enemies = {
 		"EXP": 1,
 		"Size": 10,
 		"Sprite": "res://Interface/Animations/Enemies/Barbed Manticore/BarbedManticoreIdleSide.png"
-	}
+	},
+	"Beryl Doppleganger": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Beryl Doppleganger/BerylDopplegangerIdleSide.png"
+	},
+	"Blinded Grimlock": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Blinded Grimlock/BlindedGrimlockIdleSide.png"
+	},
+	"Bloodshot Eye": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Bloodshot Eye/BloodshotEyeIdleSide.png"
+	},
+	"Brawny Ogre": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Brawny Ogre/BrawnyOgreIdleSide.png"
+	},
 }
 
 # Function to get enemy data

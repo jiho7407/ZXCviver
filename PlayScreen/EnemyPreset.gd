@@ -31,7 +31,6 @@ func initialize(enemy_type: String):
 			frame_tex.atlas = full_spritesheet
 			frame_tex.region = Rect2(Vector2(x_coords,y_coords)*sprite_size,sprite_size)
 			sprite_frames.add_frame("idle",frame_tex,y_coords*num_columns+x_coords)
-			print(x_coords)
 	anim_sprite.frames = sprite_frames
 	anim_sprite.scale.x = Size
 	anim_sprite.scale.y = Size
@@ -41,6 +40,7 @@ func initialize(enemy_type: String):
 	self.add_child(anim_sprite)
 	anim_sprite.position = Vector2(0,0)
 	anim_sprite.play("idle")
+
 
 func _physics_process(delta):
 	velocity = (Player.position - position).normalized() * SPEED
