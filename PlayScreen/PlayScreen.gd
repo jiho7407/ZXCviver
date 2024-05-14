@@ -2,8 +2,6 @@ extends Node2D
 
 
 var EnemyPresetScene = preload("res://PlayScreen/EnemyPreset.tscn")
-var Enemy1Scene = preload("res://PlayScreen/Enemy1.tscn")
-var Enemy2Scene = preload("res://PlayScreen/Enemy2.tscn")
 var GunPresetScene = preload("res://PlayScreen/GunPreset.tscn")
 var mouse_position: Vector2
 
@@ -35,10 +33,7 @@ func spawnEnemy():
 	var PlayerPosition = $Player.position
 	var SpawnPosition = Vector2()
 	var EnemyPreset = EnemyPresetScene.instantiate()
-	var Enemy1 = Enemy1Scene.instantiate()
-	var Enemy2 = Enemy2Scene.instantiate()
 	
-	var enemy = [Enemy1, Enemy2]
 	
 	if randf() < 0.25:  # Spawn either to the left or right
 		SpawnPosition.x = PlayerPosition.x - SpawnMargin
@@ -55,10 +50,10 @@ func spawnEnemy():
 				SpawnPosition.x = randf_range(-SpawnMargin, SpawnMargin)
 				SpawnPosition.y = PlayerPosition.y + SpawnMargin
 	
+	EnemyPreset.initialize("Acid Ooze")
 	
-	var NewEnemy = enemy[0]
-	NewEnemy.position = SpawnPosition
-	$Enemies.add_child(NewEnemy)
+	EnemyPreset.position = SpawnPosition
+	$Enemies.add_child(EnemyPreset)
 
 func pause_screen():
 	get_tree().paused = !get_tree().paused
