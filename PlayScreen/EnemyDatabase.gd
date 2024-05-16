@@ -85,6 +85,41 @@ var enemies = {
 		"EXP": 1,
 		"Size": 10,
 		"Sprite": "res://Interface/Animations/Enemies/Cloud Giant/CloudGiantIdleSide.png"
+	},
+	"Conjuring Oni": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Conjuring Oni/ConjuringOniIdleSide.png"
+	},
+	"Corrupted Treant": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/corrupted treant/CorruptedTreant.png"
+	},
+	"Crag Yeti": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Crag Yeti/CragYetiIdleSide.png"
+	},
+	"Crimson Imp": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/crimson imp/CrimsonImp.png"
+	},
+	"Crushing Cyclops": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Crushing Cyclops/CrushingCyclopsIdleSide.png"
 	}
 }
 
