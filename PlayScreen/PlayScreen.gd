@@ -26,7 +26,7 @@ func _input(event):
 				$PauseMenu/CanvasLayer.show()
 			else:
 				$PauseMenu/CanvasLayer.hide()
-			pause_screen()
+			pauseScreen()
 
 func spawnEnemy():
 	var SpawnMargin = 700
@@ -50,12 +50,19 @@ func spawnEnemy():
 				SpawnPosition.x = randf_range(-SpawnMargin, SpawnMargin)
 				SpawnPosition.y = PlayerPosition.y + SpawnMargin
 	
-	EnemyPreset.initialize("Acid Ooze")
+	var EnemyNamesArray = EnemyDatabase.getAllEnemyNames()
+	var i = randi_range(0,(len(EnemyNamesArray)-1))
+	var EnemyName = EnemyNamesArray[i]
 	
+	EnemyPreset.initialize(EnemyName)
 	EnemyPreset.position = SpawnPosition
 	$Enemies.add_child(EnemyPreset)
+	if (Player.position-EnemyPreset.position).x > 0:
+		EnemyPreset.get_child(1).flip_h = false
+	else:
+		EnemyPreset.get_child(1).flip_h = true
 
-func pause_screen():
+func pauseScreen():
 	get_tree().paused = !get_tree().paused
 	get_viewport().set_input_as_handled()
 

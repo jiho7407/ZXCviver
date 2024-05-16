@@ -6,21 +6,129 @@ var enemies = {
 		"HP": 100,
 		"SPEED": 180.0,
 		"EXP": 1,
-		"Size": 8,
+		"Size": 10,
 		"Sprite": "res://Interface/Animations/Enemies/Acid Ooze/AcidOozeIdleSide.png"
 	},
 	"Adept Necromancer": {
 		"HP": 100,
 		"SPEED": 180.0,
 		"EXP": 1,
-		"Size": 8,
+		"Size": 10,
 		"Sprite": "res://Interface/Animations/Enemies/adept necromancer/AdeptNecromancer.png"
+	},
+	"Antlered Rascal": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 15,
+		"Sprite": "res://Interface/Animations/Enemies/antlered rascal/AntleredRascal.png"
+	},
+	"Astral Dreadnought": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Astral Dreadnought/AstralDreadnoughtIdleSide.png"
+	},
+	"Barbed Manticore": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Barbed Manticore/BarbedManticoreIdleSide.png"
+	},
+	"Beryl Doppleganger": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Beryl Doppleganger/BerylDopplegangerIdleSide.png"
+	},
+	"Blinded Grimlock": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Blinded Grimlock/BlindedGrimlockIdleSide.png"
+	},
+	"Brawny Ogre": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Brawny Ogre/BrawnyOgreIdleSide.png"
+	},
+	"Carrion Crawler": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Carrion Crawler/CarrionCrawlerIdleSide.png"
+	},
+	"Clawed Abomination": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/clawed abomination/ClawedAbomination.png"
+	},
+	"Clawing Harpy": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Clawing Harpy/ClawingHarpyIdleSide.png"
+	},
+	"Cloud Giant": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Cloud Giant/CloudGiantIdleSide.png"
+	},
+	"Conjuring Oni": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Conjuring Oni/ConjuringOniIdleSide.png"
+	},
+	"Corrupted Treant": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/corrupted treant/CorruptedTreant.png"
+	},
+	"Crag Yeti": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Crag Yeti/CragYetiIdleSide.png"
+	},
+	"Crimson Imp": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/crimson imp/CrimsonImp.png"
+	},
+	"Crushing Cyclops": {
+		"HP": 100,
+		"SPEED": 180.0,
+		"EXP": 1,
+		"Size": 10,
+		"Sprite": "res://Interface/Animations/Enemies/Crushing Cyclops/CrushingCyclopsIdleSide.png"
 	}
 }
 
 # Function to get enemy data
-func get_enemy_data(enemy_type: String):
+func getEnemyData(enemy_type: String):
 	if enemies.has(enemy_type):
 		return enemies[enemy_type]
 	else:
 		return null
+
+func getAllEnemyNames():
+	return enemies.keys()
