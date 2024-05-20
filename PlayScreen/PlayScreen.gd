@@ -5,7 +5,7 @@ var EnemyPresetScene = preload("res://PlayScreen/EnemyPreset.tscn")
 var GunPresetScene = preload("res://PlayScreen/GunPreset.tscn")
 var mouse_position: Vector2
 
-var EnemySpawnTimerWaitTime = 0.7
+var EnemySpawnTimerWaitTime: float = 0.7
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
