@@ -120,7 +120,7 @@ var enemies = {
 		"EXP": 1,
 		"Size": 10,
 		"Sprite": "res://Interface/Animations/Enemies/Crushing Cyclops/CrushingCyclopsIdleSide.png"
-	}
+	},
 }
 
 # Function to get enemy data

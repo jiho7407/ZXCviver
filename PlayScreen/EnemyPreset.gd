@@ -9,7 +9,7 @@ var Sprite: String
 var Size: float
 
 # Initialization
-func initialize(enemy_type: String):
+func init(enemy_type: String):
 	var EnemyData = EnemyDatabase.getEnemyData(enemy_type)
 	if EnemyData:
 		self.hp = EnemyData["HP"]

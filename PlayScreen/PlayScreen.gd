@@ -54,7 +54,7 @@ func spawnEnemy():
 	var i = randi_range(0,(len(EnemyNamesArray)-1))
 	var EnemyName = EnemyNamesArray[i]
 	
-	EnemyPreset.initialize(EnemyName)
+	EnemyPreset.init(EnemyName)
 	EnemyPreset.position = SpawnPosition
 	$Enemies.add_child(EnemyPreset)
 	if (Player.position-EnemyPreset.position).x > 0:
