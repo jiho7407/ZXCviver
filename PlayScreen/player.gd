@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var mouse_position : Vector2
 var Exp = 0
+var Life = 1
 
 func _ready():
 	pass
@@ -15,4 +16,10 @@ func _physics_process(delta):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("enemies"):
-		get_tree().change_scene_to_file("res://DeathScreen.tscn")
+		Life -= 1
+		if Life <= 0:
+			playerDie()
+
+func playerDie():
+	Player.hide()
+	get_tree().change_scene_to_file("res://DeathScreen.tscn")
