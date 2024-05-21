@@ -50,7 +50,7 @@ func spawnEnemy():
 				SpawnPosition.x = randf_range(-SpawnMargin, SpawnMargin)
 				SpawnPosition.y = PlayerPosition.y + SpawnMargin
 	
-	var EnemyNamesArray = EnemyDatabase.getAllEnemyNames()
+	var EnemyNamesArray = EnemyEnum.getAllEnemyNames()
 	var i = randi_range(0,(len(EnemyNamesArray)-1))
 	var EnemyName = EnemyNamesArray[i]
 	
