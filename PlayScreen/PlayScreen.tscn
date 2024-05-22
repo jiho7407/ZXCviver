@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bypmw4h4qk31o"]
+[gd_scene load_steps=7 format=3 uid="uid://bypmw4h4qk31o"]
 
 [ext_resource type="Script" path="res://PlayScreen/PlayScreen.gd" id="1_0lqdw"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_4pk45"]
-[ext_resource type="PackedScene" uid="uid://cleupvw2u4rcu" path="res://PlayScreen/player.tscn" id="2_m2o5b"]
+[ext_resource type="PackedScene" uid="uid://cleupvw2u4rcu" path="res://PlayScreen/Player.tscn" id="2_m2o5b"]
+[ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="4_x6yp0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kduaq"]
 texture = ExtResource("2_4pk45")
@@ -118,29 +119,32 @@ initial_position = 2
 size = Vector2i(400, 600)
 visible = false
 
-[node name="ShopWindow" type="Window" parent="."]
-initial_position = 1
-size = Vector2i(1100, 600)
-visible = false
+[node name="Popup" type="Popup" parent="."]
+initial_position = 2
+size = Vector2i(300, 500)
+visible = true
 
-[node name="MarginContainer" type="MarginContainer" parent="ShopWindow"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="Popup"]
+offset_right = 21.0
+offset_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShopWindow/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ShopWindow/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Sprite" type="Sprite2D" parent="Popup/MarginContainer/VBoxContainer"]
+position = Vector2(140, 240)
+texture = ExtResource("4_x6yp0")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ShopWindow/MarginContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "NAME"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -155,4 +159,3 @@ offset_bottom = 20.0
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="close_requested" from="OptionsWindow" to="." method="_on_options_popup_close_requested"]
-[connection signal="close_requested" from="ShopWindow" to="." method="_on_shop_popup_close_requested"]

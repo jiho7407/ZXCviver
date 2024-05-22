@@ -89,8 +89,5 @@ func _on_options_popup_close_requested():
 	$OptionsWindow.hide()
 
 
-func _on_shop_popup_close_requested():
-	$ShopWindow.hide()
-
 
 
