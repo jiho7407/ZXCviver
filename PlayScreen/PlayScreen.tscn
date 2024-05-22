@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bypmw4h4qk31o"]
+[gd_scene load_steps=9 format=3 uid="uid://bypmw4h4qk31o"]
 
 [ext_resource type="Script" path="res://PlayScreen/PlayScreen.gd" id="1_0lqdw"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_4pk45"]
@@ -31,6 +31,12 @@ texture = ExtResource("2_4pk45")
 [sub_resource type="TileSet" id="TileSet_xr8yc"]
 sources/1 = SubResource("TileSetAtlasSource_kduaq")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_236kd"]
+bg_color = Color(0.230315, 0.230315, 0.230315, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0yui"]
+bg_color = Color(0.929846, 0.929846, 0, 1)
+
 [node name="PlayScreen" type="Node2D"]
 script = ExtResource("1_0lqdw")
 
@@ -42,6 +48,8 @@ layer_0/tile_data = PackedInt32Array(-1441832, 196609, 1, -1376296, 196609, 1, -
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Exp" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_m2o5b")]
 
@@ -129,19 +137,30 @@ visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 310.0
+[node name="EXPbar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 20.0
+offset_right = 1260.0
 offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_236kd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b0yui")
+show_percentage = false
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="Shop" type="Control" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Shop"]
+layout_mode = 0
 offset_left = 150.0
 offset_top = 110.0
 offset_right = 450.0
 offset_bottom = 610.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Shop/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -150,39 +169,40 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Name" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "NAME"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_x6yp0")
 stretch_mode = 3
 
-[node name="Explanation" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Explanation" type="Label" parent="CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 195)
 layout_mode = 2
 text = "Blah Blah Wow This Explains A Lot
 Blah Blah Wow This Explains A Lot
 Blah Blah Wow This Explains A Lot "
 
-[node name="SelectButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SelectButton1" type="Button" parent="CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Shop"]
+layout_mode = 0
 offset_left = 490.0
 offset_top = 110.0
 offset_right = 790.0
 offset_bottom = 610.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Shop/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -191,39 +211,40 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer2/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop/PanelContainer2/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Name" type="Label" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "NAME"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_x6yp0")
 stretch_mode = 3
 
-[node name="Explanation" type="Label" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="Explanation" type="Label" parent="CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 195)
 layout_mode = 2
 text = "Blah Blah Wow This Explains A Lot
 Blah Blah Wow This Explains A Lot
 Blah Blah Wow This Explains A Lot "
 
-[node name="SelectButton" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="SelectButton2" type="Button" parent="CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer"]
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Shop"]
+layout_mode = 0
 offset_left = 830.0
 offset_top = 110.0
 offset_right = 1130.0
 offset_bottom = 610.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Shop/PanelContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -232,29 +253,29 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer3/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop/PanelContainer3/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Name" type="Label" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "NAME"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_x6yp0")
 stretch_mode = 3
 
-[node name="Explanation" type="Label" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+[node name="Explanation" type="Label" parent="CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 195)
 layout_mode = 2
 text = "Blah Blah Wow This Explains A Lot
 Blah Blah Wow This Explains A Lot
 Blah Blah Wow This Explains A Lot "
 
-[node name="SelectButton" type="Button" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+[node name="SelectButton3" type="Button" parent="CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
@@ -263,3 +284,6 @@ layout_mode = 2
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="close_requested" from="OptionsWindow" to="." method="_on_options_popup_close_requested"]
+[connection signal="pressed" from="CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer/SelectButton1" to="." method="_on_select_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer/SelectButton2" to="." method="_on_select_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer/SelectButton3" to="." method="_on_select_button_3_pressed"]

@@ -9,6 +9,8 @@ var EnemySpawnTimerWaitTime: float = 0.7
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Player.Exp = 0
+	$CanvasLayer/EXPbar.max_value = 3 #테스트용으로 맞춰둔 맥스 value 이후 난이도 조절 단계에서 조정 필요.
 	$EnemySpawnTimer.wait_time = EnemySpawnTimerWaitTime
 	$EnemySpawnTimer.start()
 	var GunPreset = GunPresetScene.instantiate()
@@ -17,7 +19,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$CanvasLayer/EXPbar.value = Player.Exp
+	if $CanvasLayer/EXPbar.value >= $CanvasLayer/EXPbar.max_value:
+		$CanvasLayer/EXPbar.value = 0
+		Player.Exp = 0
+		pauseScreen()
+		shopMode()
 
 func _input(event):
 	if event is InputEventKey:
@@ -66,6 +73,10 @@ func pauseScreen():
 	get_tree().paused = !get_tree().paused
 	get_viewport().set_input_as_handled()
 
+func shopMode():
+	$CanvasLayer/Shop.show()
+
+
 
 func _on_enemy_spawn_timer_timeout():
 	spawnEnemy()
@@ -89,5 +100,17 @@ func _on_options_popup_close_requested():
 	$OptionsWindow.hide()
 
 
+func _on_select_button_1_pressed():
+	$CanvasLayer/Shop.hide()
+	pauseScreen()
 
+
+func _on_select_button_2_pressed():
+	$CanvasLayer/Shop.hide()
+	pauseScreen()
+
+
+func _on_select_button_3_pressed():
+	$CanvasLayer/Shop.hide()
+	pauseScreen()
 
