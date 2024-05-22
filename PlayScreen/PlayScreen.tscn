@@ -50,9 +50,17 @@ layer_0/tile_data = PackedInt32Array(-1441832, 196609, 1, -1376296, 196609, 1, -
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PauseMenu"]
 visible = false
@@ -119,33 +127,6 @@ initial_position = 2
 size = Vector2i(400, 600)
 visible = false
 
-[node name="Popup" type="Popup" parent="."]
-initial_position = 2
-size = Vector2i(300, 500)
-visible = true
-
-[node name="MarginContainer" type="MarginContainer" parent="Popup"]
-offset_right = 21.0
-offset_bottom = 43.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Sprite" type="Sprite2D" parent="Popup/MarginContainer/VBoxContainer"]
-position = Vector2(140, 240)
-texture = ExtResource("4_x6yp0")
-
-[node name="Name" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "NAME"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
@@ -153,6 +134,129 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 310.0
 offset_bottom = 20.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 150.0
+offset_top = 110.0
+offset_right = 450.0
+offset_bottom = 610.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Name" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NAME"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_x6yp0")
+stretch_mode = 3
+
+[node name="Explanation" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 195)
+layout_mode = 2
+text = "Blah Blah Wow This Explains A Lot
+Blah Blah Wow This Explains A Lot
+Blah Blah Wow This Explains A Lot "
+
+[node name="SelectButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 490.0
+offset_top = 110.0
+offset_right = 790.0
+offset_bottom = 610.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Name" type="Label" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NAME"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_x6yp0")
+stretch_mode = 3
+
+[node name="Explanation" type="Label" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 195)
+layout_mode = 2
+text = "Blah Blah Wow This Explains A Lot
+Blah Blah Wow This Explains A Lot
+Blah Blah Wow This Explains A Lot "
+
+[node name="SelectButton" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 830.0
+offset_top = 110.0
+offset_right = 1130.0
+offset_bottom = 610.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Name" type="Label" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NAME"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_x6yp0")
+stretch_mode = 3
+
+[node name="Explanation" type="Label" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 195)
+layout_mode = 2
+text = "Blah Blah Wow This Explains A Lot
+Blah Blah Wow This Explains A Lot
+Blah Blah Wow This Explains A Lot "
+
+[node name="SelectButton" type="Button" parent="CanvasLayer/PanelContainer3/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
