@@ -20,9 +20,9 @@ enum Wave {
 
 const STAGE_INFO = {
 	Round.ROUND_1: {
-		Wave.WAVE_1: {"hp": 100, "speed": 120, "size": 10, "enemy_count": 1},
-		Wave.WAVE_2: {"hp": 200, "speed": 160, "size": 12, "enemy_count": 2},
-		Wave.WAVE_3: {"hp": 1000, "speed": 40, "size": 30, "enemy_count": 1},
+		Wave.WAVE_1: {"hp": 100, "speed": 120, "size": 10, "enemy_count": 10},
+		Wave.WAVE_2: {"hp": 200, "speed": 160, "size": 12, "enemy_count": 5},
+		Wave.WAVE_3: {"hp": 2000, "speed": 40, "size": 30, "enemy_count": 1},
 	},
 }
 
