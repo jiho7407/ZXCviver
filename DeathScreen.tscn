@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbgrybal54n5v"]
+[gd_scene load_steps=3 format=3 uid="uid://cbgrybal54n5v"]
 
 [ext_resource type="Script" path="res://DeathScreen.gd" id="1_r7q6f"]
+[ext_resource type="Texture2D" uid="uid://bh58lwasdjurw" path="res://Interface/you died.jpg" id="2_0nq5s"]
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -19,6 +20,11 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PauseMenu"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseMenu/CanvasLayer"]
+position = Vector2(640, 300)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_0nq5s")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu/CanvasLayer"]
 offset_right = 1280.0

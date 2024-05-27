@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bypmw4h4qk31o"]
+[gd_scene load_steps=10 format=3 uid="uid://bypmw4h4qk31o"]
 
 [ext_resource type="Script" path="res://PlayScreen/PlayScreen.gd" id="1_0lqdw"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_4pk45"]
 [ext_resource type="PackedScene" uid="uid://cleupvw2u4rcu" path="res://PlayScreen/Player.tscn" id="2_m2o5b"]
+[ext_resource type="PackedScene" uid="uid://r3mly2mbuwyd" path="res://PlayScreen/ItemEnum.tscn" id="3_hp04r"]
 [ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="4_x6yp0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kduaq"]
@@ -50,6 +51,9 @@ layer_0/tile_data = PackedInt32Array(-1441832, 196609, 1, -1376296, 196609, 1, -
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Exp" type="Node2D" parent="."]
+
+[node name="ItemEnum" parent="." instance=ExtResource("3_hp04r")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("2_m2o5b")]
 

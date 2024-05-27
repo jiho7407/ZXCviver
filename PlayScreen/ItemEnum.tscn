@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://r3mly2mbuwyd"]
+
+[ext_resource type="Script" path="res://PlayScreen/ItemEnum.gd" id="1_b1mbe"]
+[ext_resource type="Texture2D" uid="uid://dfvpy4dtdkp34" path="res://Interface/Items/Skills.png" id="1_irqph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltgn2"]
+atlas = ExtResource("1_irqph")
+region = Rect2(144, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqdut"]
+atlas = ExtResource("1_irqph")
+region = Rect2(160, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf0iw"]
+atlas = ExtResource("1_irqph")
+region = Rect2(176, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3bx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltgn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqdut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf0iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ItemEnum" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_b1mbe")
+
+[node name="DamageUp" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e3bx4")
