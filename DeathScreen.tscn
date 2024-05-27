@@ -22,8 +22,8 @@ offset_bottom = 720.0
 [node name="CanvasLayer" type="CanvasLayer" parent="PauseMenu"]
 
 [node name="Sprite2D" type="Sprite2D" parent="PauseMenu/CanvasLayer"]
-position = Vector2(640, 300)
-scale = Vector2(0.4, 0.4)
+position = Vector2(640, 360)
+scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("2_0nq5s")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu/CanvasLayer"]
