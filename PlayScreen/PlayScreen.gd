@@ -74,8 +74,32 @@ func pauseScreen():
 	get_viewport().set_input_as_handled()
 
 func shopMode():
+	var ItemNames = ItemEnum.getAllItemNames()
+	#추후 수정 필요. 상점에 띄울 Item을 랜덤으 고르는 부분로
+	randomize()
+	ItemNames.shuffle()  # Randomly rearranges the elements of the array
+	var ItemKeys =  ItemNames.slice(0, 3)  # Ensures no out-of-range error
 	$CanvasLayer/Shop.show()
-
+	if ItemEnum.items.has(ItemKeys[0]):
+		$CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer/Name.text = ItemEnum.items[ItemKeys[0]]["Name"]
+		$CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer/TextureRect.texture = load(ItemEnum.items[ItemKeys[0]]["Sprite"])
+		$CanvasLayer/Shop/PanelContainer/MarginContainer/VBoxContainer/Explanation.text = ItemEnum.items[ItemKeys[0]]["Explanation"]
+	else:
+		print("Item key not found")
+		
+	if ItemEnum.items.has(ItemKeys[0]):
+		$CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer/Name.text = ItemEnum.items[ItemKeys[1]]["Name"]
+		$CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer/TextureRect.texture = load(ItemEnum.items[ItemKeys[1]]["Sprite"])
+		$CanvasLayer/Shop/PanelContainer2/MarginContainer/VBoxContainer/Explanation.text = ItemEnum.items[ItemKeys[1]]["Explanation"]
+	else:
+		print("Item key not found")
+		
+	if ItemEnum.items.has(ItemKeys[0]):
+		$CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer/Name.text = ItemEnum.items[ItemKeys[2]]["Name"]
+		$CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer/TextureRect.texture = load(ItemEnum.items[ItemKeys[2]]["Sprite"])
+		$CanvasLayer/Shop/PanelContainer3/MarginContainer/VBoxContainer/Explanation.text = ItemEnum.items[ItemKeys[2]]["Explanation"]
+	else:
+		print("Item key not found")
 
 
 func _on_enemy_spawn_timer_timeout():
