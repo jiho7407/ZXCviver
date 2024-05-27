@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bypmw4h4qk31o"]
+[gd_scene load_steps=10 format=3 uid="uid://bypmw4h4qk31o"]
 
 [ext_resource type="Script" path="res://PlayScreen/PlayScreen.gd" id="1_0lqdw"]
 [ext_resource type="Texture2D" uid="uid://bwhgwsvq8jjlc" path="res://Interface/Grass.png" id="2_4pk45"]
-[ext_resource type="PackedScene" uid="uid://cleupvw2u4rcu" path="res://PlayScreen/Player.tscn" id="2_m2o5b"]
+[ext_resource type="PackedScene" uid="uid://cleupvw2u4rcu" path="res://PlayScreen/player.tscn" id="2_m2o5b"]
+[ext_resource type="PackedScene" uid="uid://dkkme1t6jgcko" path="res://PlayScreen/Stage/StageScene.tscn" id="4_s5h30"]
 [ext_resource type="Texture2D" uid="uid://cxxk8sree3cnq" path="res://icon.svg" id="4_x6yp0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kduaq"]
@@ -47,13 +48,11 @@ layer_0/tile_data = PackedInt32Array(-1441832, 196609, 1, -1376296, 196609, 1, -
 
 [node name="Weapons" type="Node2D" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
-
 [node name="Exp" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_m2o5b")]
 
-[node name="EnemySpawnTimer" type="Timer" parent="."]
+[node name="StageScene" parent="." instance=ExtResource("4_s5h30")]
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
@@ -279,7 +278,6 @@ Blah Blah Wow This Explains A Lot "
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,8 +1,8 @@
 extends Node2D
 
 
-var EnemyPresetScene = preload("res://PlayScreen/EnemyPreset.tscn")
 var GunPresetScene = preload("res://PlayScreen/GunPreset.tscn")
+var StageScene = preload("res://PlayScreen/Stage/StageScene.tscn")
 var mouse_position: Vector2
 
 var EnemySpawnTimerWaitTime: float = 0.7
@@ -11,11 +11,8 @@ var EnemySpawnTimerWaitTime: float = 0.7
 func _ready():
 	Player.Exp = 0
 	$CanvasLayer/EXPbar.max_value = 3 #테스트용으로 맞춰둔 맥스 value 이후 난이도 조절 단계에서 조정 필요.
-	$EnemySpawnTimer.wait_time = EnemySpawnTimerWaitTime
-	$EnemySpawnTimer.start()
 	var GunPreset = GunPresetScene.instantiate()
 	$Weapons.add_child(GunPreset)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,52 +32,12 @@ func _input(event):
 				$PauseMenu/CanvasLayer.hide()
 			pauseScreen()
 
-func spawnEnemy():
-	var SpawnMargin = 700
-	var PlayerPosition = $Player.position
-	var SpawnPosition = Vector2()
-	var EnemyPreset = EnemyPresetScene.instantiate()
-	
-	
-	if randf() < 0.25:  # Spawn either to the left or right
-		SpawnPosition.x = PlayerPosition.x - SpawnMargin
-		SpawnPosition.y = randf_range(-SpawnMargin, SpawnMargin)
-	else: 
-		if randf() < 0.5:
-			SpawnPosition.x = PlayerPosition.x + SpawnMargin
-			SpawnPosition.y = randf_range(-SpawnMargin, SpawnMargin)
-		else:
-			if randf() < 0.75:
-				SpawnPosition.x = randf_range(-SpawnMargin, SpawnMargin)
-				SpawnPosition.y = PlayerPosition.y - SpawnMargin
-			else:
-				SpawnPosition.x = randf_range(-SpawnMargin, SpawnMargin)
-				SpawnPosition.y = PlayerPosition.y + SpawnMargin
-	
-	var EnemyNamesArray = EnemyEnum.getAllEnemyNames()
-	var i = randi_range(0,(len(EnemyNamesArray)-1))
-	var EnemyName = EnemyNamesArray[i]
-	
-	EnemyPreset.init(EnemyName)
-	EnemyPreset.position = SpawnPosition
-	$Enemies.add_child(EnemyPreset)
-	if (Player.position-EnemyPreset.position).x > 0:
-		EnemyPreset.get_child(1).flip_h = false
-	else:
-		EnemyPreset.get_child(1).flip_h = true
-
 func pauseScreen():
 	get_tree().paused = !get_tree().paused
 	get_viewport().set_input_as_handled()
 
 func shopMode():
 	$CanvasLayer/Shop.show()
-
-
-
-func _on_enemy_spawn_timer_timeout():
-	spawnEnemy()
-	$EnemySpawnTimer.start()
 
 
 func _on_exit_pressed():

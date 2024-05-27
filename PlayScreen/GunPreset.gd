@@ -13,7 +13,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if shoot_z >= 1 and shoot_x >= 1:
-		shoot()
+		shoot(100, 1) #damage, penetration
 		shoot_z = 0
 		shoot_x = 0
 
@@ -24,9 +24,11 @@ func _input(event):
 		if Input.is_action_just_pressed("shoot_x"):
 			shoot_x += 1
 
-func shoot():
+func shoot(damage: int, penetration: int):
 	var bullet = Bullet.instantiate()
 	bullet.position = Vector2(0,0)
 	bullet.direction = (get_global_mouse_position() - position).normalized()
+	bullet.damage = damage
+	bullet.penetration = penetration
 	self.add_child(bullet)
 	

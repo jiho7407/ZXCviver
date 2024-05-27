@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfmrgcgv7xljb"]
 
-[ext_resource type="Script" path="res://PlayScreen/EnemyPreset.gd" id="1_oa7lq"]
+[ext_resource type="Script" path="res://PlayScreen/Stage/EnemyPreset.gd" id="1_chiis"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lm83w"]
 radius = 8.0
 
 [node name="EnemyPreset" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_oa7lq")
+script = ExtResource("1_chiis")
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
 
