@@ -8,6 +8,9 @@ var hp: int
 var Sprite: String
 var Size: float
 
+var ExpTamaScene = preload("res://PlayScreen/ExpTama.tscn")
+var ExpTama = ExpTamaScene.instantiate()
+
 # Initialization
 func init(enemy_type: String):
 	var EnemyData = EnemyEnum.getEnemyData(enemy_type)
@@ -46,7 +49,9 @@ func _physics_process(delta):
 	velocity = (Player.position - position).normalized() * SPEED
 	move_and_slide()
 	if hp <= 0:
-		Player.Exp += EXP
+		get_node("/root/PlayScreen/Exp").add_child(ExpTama)
+		ExpTama.position = position
+		ExpTama.EXP = EXP
 		queue_free()
 
 
