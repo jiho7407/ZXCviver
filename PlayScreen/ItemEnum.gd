@@ -3,18 +3,24 @@ extends Node
 # Dictionary to store enemy data
 var items = {
 	"ItemPreset": {
-		"Name": 100,
-		"Sprite": "res://Interface/Animations/Enemies/Acid Ooze/AcidOozeIdleSide.png",
-		"Explanation": "Wow very good"
+		"Name" : "Itempreset",
+		"Explanation": "Wow very good",
+		"Sprite": "res://PlayScreen/ItemEnum.tscn::AtlasTexture_ltgn2"
+	},
+	"DamageUp": {
+		"Name" : "Heavy knife",
+		"Explanation": "Increase Egg Damage +1",
+		"Sprite": "res://PlayScreen/ItemEnum.tscn::AtlasTexture_ltgn2"
+	},
+	"asdf": {
+		"Name" : "Heavy knife",
+		"Explanation": "Increase Egg Damage +1",
+		"Sprite": "res://PlayScreen/ItemEnum.tscn::AtlasTexture_ltgn2"
 	},
 }
 
 # Function to get enemy data
-func getItemData(ItemType: String):
-	if items.has(ItemType):
-		return items[ItemType]
-	else:
-		return null
+
 
 func getAllItemNames():
 	return items.keys()

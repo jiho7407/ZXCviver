@@ -20,6 +20,7 @@ config/icon="res://Interface/eggicon.png"
 Player="*res://PlayScreen/Player.tscn"
 Game="*res://game.tscn"
 EnemyEnum="*res://PlayScreen/Stage/EnemyEnum.gd"
+ItemEnum="*res://PlayScreen/ItemEnum.gd"
 
 [display]
 
